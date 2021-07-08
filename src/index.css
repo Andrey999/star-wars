@@ -1,0 +1,72 @@
+:root {
+    --color-dark-grey: #10100e;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-yellow: #ffff00;
+    --color-blue: #6a83fb;
+    --color-violet: #ae72c2;
+    --color-red: #f75d83;
+
+    --theme-light-header: #dfe2df;
+    --theme-dark-header: #ca6c6f;
+    --theme-neitral-header: #cccc46;
+    --theme-default-header: var(--theme-neitral-header);
+
+    --theme-light-bg:  linear-gradient(to right bottom, #051937, #162454, #312d70, #533389, #7a359f);
+    --theme-dark-bg: linear-gradient(to right bottom, #000000, #160b11, #20141e, #281b2e, #2b2440);
+    --theme-neitral-bg: url(static/bg.jpg);
+    --theme-default-bg: var(--theme-neitral-bg);
+}
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-dark-grey);
+    background-image: var(--theme-default-bg);
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+img {
+    display: block;
+}
+
+ul,
+li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__text {
+    line-height: 1.7;
+    font-size: 26px;
+    text-shadow: 0 0 2px var(--color-black);
+    color: var(--theme-default-header);
+    transition: color .3s;
+}
+
+/* scroll */
+::-webkit-scrollbar {   /* ширина скрола */
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {  /* цвет скрола */
+    background-color: rgb(37, 56, 97); 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {   /* фон полоски под скролом */
+    background-color: rgba(0, 0, 0, .9);
+}
