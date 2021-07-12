@@ -1,0 +1,35 @@
+.homeTheme__wrapper {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.homeTheme__container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .5);
+    transition: ease .3s;
+    cursor: pointer;
+}
+
+.homeTheme__text {
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    font-size: 18px;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.homeTheme__img {
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+    border-radius: 10px;
+}
