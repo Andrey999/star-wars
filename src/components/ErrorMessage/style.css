@@ -1,0 +1,9 @@
+.error__text {
+    text-align: center;
+    width: 600px;
+    margin: 100px auto 30px;
+    line-height: 1.7;
+    color: var(--color-yellow);
+    font-size: 26px;
+    text-shadow: 0 0 2px var(--color-white); 
+}
