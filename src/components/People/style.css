@@ -1,0 +1,27 @@
+.list__item {
+    width: 190px;
+    margin: 20px;
+    border-radius: 3px;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+
+.list__item a {
+    text-decoration: none;
+    color: var(--color-black);
+    text-align: center;
+}
+
+.list__image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 3px 3px 0 0;
+}
+
+
+/* pagination  button */
+.pagination__container {
+    text-align: center;
+}
