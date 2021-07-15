@@ -1,0 +1,85 @@
+/* singlePeople  image */
+.singlePeople__image-container {
+    width: 250px;
+    height: 350px;
+    position: relative;
+}
+
+.singlePeople__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/*  singlePeople info  */
+.singlePeople__list {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.singlePeople__title {
+    text-decoration: underline;
+    text-shadow: 0 0 2px var(--color-white), 0 0 40px var(--color-blue);
+}
+
+/* back  button */
+.btn__back {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--color-yellow);
+    text-decoration: none;
+    max-width: 120px;
+}
+
+.btn__back-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    object-fit: cover;
+    object-position: center center;
+    color: var(--color-yellow);
+}
+
+/*  singlePeople movies  */
+.singleMovies__wrapper {
+    margin-left: 20px;
+    padding: 20px 0;
+}
+
+.singleMovies__list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: var(--color-white);
+}
+
+.singleMovies__episode {
+    padding: 5px;
+    border-radius: 3px;
+    background-color: var(--color-red);
+    margin-right: 15px;
+}
+
+/*  add to favorite  */
+.favorite {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+/* media */
+@media screen and (max-width: 1020px) {
+    .singleMovies__wrapper {
+        margin: 0;
+        width: 100%;
+    }
+}
