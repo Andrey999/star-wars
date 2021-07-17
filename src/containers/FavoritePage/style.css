@@ -1,0 +1,10 @@
+.favorite__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.favoritePage__noData {
+    font-size: 25px;
+    margin: auto;
+    color: var(--color-white);
+}
