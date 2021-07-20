@@ -1,0 +1,6 @@
+.video__wrapper {
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px var(--color-white);
+}
