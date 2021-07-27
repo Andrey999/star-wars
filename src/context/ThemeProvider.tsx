@@ -2,7 +2,12 @@ import React, { useContext, useState, useEffect } from 'react'
 import { setThemeCssVariable } from 'utils/setThemeCssVariables'
 import { setLocalStorage, getLocalStorage } from 'utils/localStorage'
 
-export const ThemeContext = React.createContext<any>(null)
+interface ThemeContextInterface {
+    theme: string | {}
+    changeTheme: (themeName: string) => void
+}
+
+export const ThemeContext = React.createContext<ThemeContextInterface | null>(null)
 
 export const THEME_NEITRAL = 'neitral'
 export const THEME_DARK = 'dark'
