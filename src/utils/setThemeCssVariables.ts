@@ -1,4 +1,4 @@
-export const setThemeCssVariable = (theme: string) => {
+export const setThemeCssVariable = (themeName: string) => {
     const root = document.querySelector(':root') as HTMLElement
     // меняем переменные css 
     // --theme-default-header: var(--theme-neitral-header)
@@ -6,7 +6,7 @@ export const setThemeCssVariable = (theme: string) => {
 
     const variables = ['header', 'bg']
     variables.forEach(elem => {
-        root.style.setProperty(`--theme-default-${elem}`, `var(--theme-${theme}-${elem})`)
+        root.style.setProperty(`--theme-default-${elem}`, `var(--theme-${themeName}-${elem})`)
     })
 }
     // root.style.setProperty('--theme-header-default', `var(--theme-${theme}-header)`)
