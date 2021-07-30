@@ -16,9 +16,9 @@ export const getApiResource = async (url: string) => {
     }
 }
 
-// приходит массив url, перебираем в map и отправляем запрос на каждый url
-export const makeConcurrentRequest = async (url: any) => {
-    const res = await Promise.all(url.map((res: any) => {
+// приходит массив урлов, перебираем в map и отправляем запрос на каждый url
+export const makeConcurrentRequest = async (url: Array<string>) => {
+    const res = await Promise.all(url.map(res => {
         return fetch(res).then(res => res.json())
     }))
     return res
