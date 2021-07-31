@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage'
 
-type SetErrorApiType = {
+interface SetErrorApiType {
     setErrorApi: (bool: boolean) => void
 }
 
