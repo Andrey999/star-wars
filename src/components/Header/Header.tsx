@@ -16,8 +16,6 @@ export const Header = () => {
                 return setIcon(require('../../static/space-station.svg').default)
             case THEME_NEITRAL:
                 return setIcon(require('../../static/droid.svg').default)
-
-            default: setIcon(require('../../static/droid.svg').default)
         }
     }, [isTheme])
 

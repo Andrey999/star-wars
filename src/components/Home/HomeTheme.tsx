@@ -13,16 +13,6 @@ export const HomeTheme = () => {
                     className="homeTheme__img"
                     src={(require('../../static/light-side.jpg').default)}
                     alt="Light Side"
-                    onClick={() => isTheme.changeTheme(THEME_NEITRAL)}
-                />
-            </div>
-
-            <div className="homeTheme__container">
-                <span className="homeTheme__text">I'm Han Solo</span>
-                <img
-                    className="homeTheme__img"
-                    src={(require('../../static/falcon.jpg').default)}
-                    alt="I'm Han Solo"
                     onClick={() => isTheme.changeTheme(THEME_LIGHT)}
                 />
             </div>
@@ -31,8 +21,18 @@ export const HomeTheme = () => {
                 <span className="homeTheme__text">Dark Side</span>
                 <img
                     className="homeTheme__img"
-                    src={(require('../../static/dark-side.jpg').default)}
+                    src={(require('../../static/falcon.jpg').default)}
                     alt="Dark Side"
+                    onClick={() => isTheme.changeTheme(THEME_NEITRAL)}
+                />
+            </div>
+
+            <div className="homeTheme__container">
+                <span className="homeTheme__text">I'm Han Solo</span>
+                <img
+                    className="homeTheme__img"
+                    src={(require('../../static/dark-side.jpg').default)}
+                    alt="I'm Han Solo" 
                     onClick={() => isTheme.changeTheme(THEME_DARK)}
                 />
             </div>
