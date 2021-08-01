@@ -1,12 +1,19 @@
-import PeoplePage from '../containers/PeoplePage/PeoplePage'
-import { HomePage } from '../containers/HomePage/HomePage'
-import { NotFoundPage } from '../containers/NotFoundPage/NotFoundPage'
-import SinglePeoplePage from '../containers/SinglePeoplePage/SinglePeoplePage'
-import { FavoritePage } from 'containers/FavoritePage/FavoritePage'
-import SearchPage from 'containers/SearchPage/SearchPage'
-import {ErrorMessage} from 'components/ErrorMessage/ErrorMessage'
+import PeoplePage from 'pages/PeoplePage/PeoplePage'
+import { HomePage } from 'pages/HomePage/HomePage'
+import { NotFoundPage } from 'pages/NotFoundPage/NotFoundPage'
+import SinglePeoplePage from 'pages/SinglePeoplePage/SinglePeoplePage'
+import { FavoritePage } from 'pages/FavoritePage/FavoritePage'
+import SearchPage from 'pages/SearchPage/SearchPage'
+import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage'
+import { ReactNode } from 'react'
 
-export const routes = [
+interface IRoutes {
+    path: string
+    exact: boolean
+    component: ReactNode
+}
+
+export const routes: IRoutes[] = [
     {
         path: '/',
         exact: true,
