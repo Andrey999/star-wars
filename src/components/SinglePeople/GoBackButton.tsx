@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { useHistory } from 'react-router'
 import './style.css'
 
 export const GoBackButton = () => {
     const history = useHistory()
 
-    const handleGoBack = (e: any) => {
+    const handleGoBack = (e: ChangeEvent<unknown>) => {
         e.preventDefault()
         history.goBack()
     }

@@ -6,14 +6,14 @@ import './style.css'
 interface SinglePeopleImageProps {
     singlePeopleImage: string | undefined
     singlePeopleName: string
-    singlePeopleId: any
+    singlePeopleId: string
     favorite: boolean
-    setFavorite: (b: boolean) => void
+    setFavorite: (item: boolean) => void
 }
 
 export const SinglePeopleImage = ({ singlePeopleImage, singlePeopleName, singlePeopleId, favorite, setFavorite }: SinglePeopleImageProps) => {
     const dispatch = useDispatch()
-
+    
     const setToFavorite = () => {
         if (favorite) {
             dispatch(removePersonFromFavorite(singlePeopleId))
