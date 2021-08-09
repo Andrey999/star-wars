@@ -7,6 +7,7 @@ import { withErrorApi } from 'hoc/withErrorApi'
 import { useQueryParams } from 'hooks/useQueryParams'
 import { PeoplePagination } from 'components/People/PeoplePagination'
 import { UiLoader } from 'UI/UiLoader/UiLoader'
+import { IPeople, IPeopleList } from 'types/type'
 import './style.css'
 
 interface PeoplePageProps {
@@ -14,22 +15,21 @@ interface PeoplePageProps {
 }
 
 const PeoplePage = (props: PeoplePageProps) => {
-    const [people, setPeople] = useState([])
+    const [people, setPeople] = useState<Array<IPeopleList>>([])
     const [nextPage, setNextPage] = useState<string | null>(null)
     const [prevPage, setPrevPage] = useState<string | null>(null)
     const [countPage, setCountPage] = useState<number | null>(1)
-
+    
     const query = useQueryParams()
     const queryPage = query.get('page')
 
-
     const getPeople = async (url: string) => {
-        const res = await getApiResource(url)
+        const res: IPeople = await getApiResource(url)
 
         if (res) {
-            const data = res.results.map((elements: any) => {
+            const data = res.results.map(elements => {
                 const id = getPeopleId(elements.url)
-                const image = getPeopleImage(id)
+                const image = getPeopleImage(id || '')
 
                 return { id, name: elements.name, image }
             })
@@ -56,7 +56,7 @@ const PeoplePage = (props: PeoplePageProps) => {
 
             <ul className="list__container">
                 {!people.length && <UiLoader />}
-                {people.map((item: any) => <PeopleList key={item.id} item={item} />)}
+                {people.map(item => <PeopleList key={item.id} item={item} />)}
             </ul>
         </Fragment>
     )
