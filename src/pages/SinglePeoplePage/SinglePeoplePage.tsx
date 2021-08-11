@@ -18,12 +18,12 @@ interface SinglePeoplePageProps {
 const SinglePeoplePage = (props: SinglePeoplePageProps) => {
     const storeData = useSelector((state: any) => state.favoriteReducer)
 
-    const [singlePeopleId, setSinglePeopleId] = useState((null))
+    const [singlePeopleId, setSinglePeopleId] = useState<string>('')
     const [favorite, setFavorite] = useState(false)
-    const [singlePeopleInfo, setSinglePeopleInfo] = useState<Array<{}> | null>(null)
+    const [singlePeopleInfo, setSinglePeopleInfo] = useState<Array<{ title: string, data: string }> | null>(null)
     const [singlePeopleName, setSinglePeopleName] = useState('')
     const [singlePeopleImage, setSinglePeopleImage] = useState<string | undefined>()
-    const [singlePeopleMovies, setSinglePeopleMovies] = useState(null)
+    const [singlePeopleMovies, setSinglePeopleMovies] = useState<Array<string> | null>(null)
 
     const { id }: any = useParams()
 
@@ -50,13 +50,8 @@ const SinglePeoplePage = (props: SinglePeoplePageProps) => {
     }
 
     useEffect(() => {
-        // let unmounted = false
-        // if (!unmounted) {
         getSinglePeople(`${SINGLE_PEOPLE}/${id}/`)
         setSinglePeopleId(id)
-        // }
-
-        // return () => { unmounted = true }
     }, [])
 
     return (
@@ -77,7 +72,7 @@ const SinglePeoplePage = (props: SinglePeoplePageProps) => {
 
                     {singlePeopleInfo && (
                         <ul className="singlePeople__info">
-                            {singlePeopleInfo.map((items: any) => {
+                            {singlePeopleInfo.map(items => {
                                 return <SinglePeopleInfo key={items.title} items={items} />
                             })}
                         </ul>
