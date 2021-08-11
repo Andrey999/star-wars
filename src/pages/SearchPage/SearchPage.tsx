@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, ChangeEvent } from 'react'
 import { getApiResource } from 'utils/network'
 import { SEARCH_PEOPLE } from 'constants/api'
 import { withErrorApi } from '../../hoc/withErrorApi'
 import { getPeopleId, getPeopleImage } from 'utils/getUrlId'
 import { UiInput } from 'UI/UiInput/UiInput'
-import { UiLoader } from 'UI/UiLoader/UiLoader'
 import { PeopleList } from 'components/People/PeopleList'
+import { IPeopleList } from 'types/type'
 import { debounce } from 'lodash'
 import './style.css'
 
@@ -15,16 +15,17 @@ interface SearchPageProps {
 
 const SearchPage = ({ setErrorApi }: SearchPageProps) => {
     const [value, setValue] = useState('')
-    const [people, setPeople] = useState([])
+    const [people, setPeople] = useState<Array<IPeopleList>>([])
+    const [count, setCount] = useState(1)
 
     const getResponse = async (value: string) => {
         const res = await getApiResource(SEARCH_PEOPLE + value)
         if (!res) setErrorApi(true)
-        else if(res.count == 0) return <p>No data</p> 
+        setCount(res.count)
 
-        const peopleList = res.results.map((item: any) => {
-            const id = getPeopleId(item.url)
-            const img = getPeopleImage(id)
+        const peopleList = res.results.map((item: IPeopleList) => {
+            const id = getPeopleId(item.url || '')
+            const img = getPeopleImage(id || '')
 
             return { id, name: item.name, image: img }
         })
@@ -32,12 +33,12 @@ const SearchPage = ({ setErrorApi }: SearchPageProps) => {
     }
 
     useEffect(() => {
-        getResponse('') // для отображения первых 10 персонажей, чтобы страница не была пустой
+        getResponse('')  // для отображения первых 10 персонажей, чтобы страница не была пустой
     }, [])
 
     const debounceGetResponse = useCallback(debounce(value => getResponse(value), 300), [])
 
-    const handleInputChange = (event: any) => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
         debounceGetResponse(event.target.value)
     }
@@ -53,9 +54,9 @@ const SearchPage = ({ setErrorApi }: SearchPageProps) => {
             />
 
             <ul className="favorite__container">
-                {people.length
-                    ? people.map((item: any) => <PeopleList key={item.id} item={item} />)
-                    : <UiLoader />
+                {count == 0 ?
+                    <p className="noData__text">Ничего не найдено</p>
+                    : people.map(item => <PeopleList key={item.id} item={item} />)
                 }
             </ul>
         </div>
