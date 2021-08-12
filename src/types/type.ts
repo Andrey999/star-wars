@@ -29,6 +29,7 @@ export interface IPeopleList {
     id: string | undefined
     image: string
     name: string
+    url?: string
 }
 
 // SINGLE PEOPLE
