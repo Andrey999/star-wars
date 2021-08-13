@@ -24,7 +24,7 @@
     // "paths": {
     //   "components/*": ["components/*"],
     //   "constants/*": ["constants/*"],
-    //   "containers/*": ["containers/*"],
+    //   "pages/*": ["pages/*"],
     //   "hoc/*": ["hoc/*"],
     //   "routes/*": ["routes/*"],
     //   "utils/*": ["utils/*"]

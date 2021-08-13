@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import './style.css'
 
 interface UiInputProps {
     value: string
-    handleInputChange: (value: any) => void
+    handleInputChange: (value: ChangeEvent<HTMLInputElement>) => void
     placeholder: string
 }
 
